@@ -1,0 +1,21 @@
+2026-10-06 01:00:41 | WARNING | selenium.webdriver.common.selenium_manager | Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)
+2026-10-06 01:00:43 | INFO | conftest | Navegador nuevo para test_login_exitoso
+2026-10-06 01:00:43 | INFO | utils.saucedemo_utils | Abrir SauceDemo e iniciar sesión con standard_user
+2026-10-06 01:00:45 | INFO | utils.saucedemo_utils | Login realizado. URL actual: https://www.saucedemo.com/inventory.html
+2026-10-06 01:00:45 | INFO | test_saucedemo | TC01: ruta, título y cabeceras del inventario correctos.
+2026-10-06 01:00:45 | INFO | conftest | Resultado de test_login_exitoso (call): passed
+2026-10-06 01:00:48 | INFO | conftest | Navegador cerrado para test_login_exitoso
+2026-10-06 01:00:49 | INFO | conftest | Navegador nuevo para test_catalogo_productos
+2026-10-06 01:00:49 | INFO | utils.saucedemo_utils | Abrir SauceDemo e iniciar sesión con standard_user
+2026-10-06 01:00:51 | INFO | utils.saucedemo_utils | Login realizado. URL actual: https://www.saucedemo.com/inventory.html
+2026-10-06 01:00:51 | INFO | test_saucedemo | Primer producto: Sauce Labs Backpack | Precio: $29.99
+2026-10-06 01:00:51 | INFO | test_saucedemo | TC02: catálogo, menú, filtro y acceso al carrito disponibles.
+2026-10-06 01:00:51 | INFO | conftest | Resultado de test_catalogo_productos (call): passed
+2026-10-06 01:00:53 | INFO | conftest | Navegador cerrado para test_catalogo_productos
+2026-10-06 01:00:55 | INFO | conftest | Navegador nuevo para test_agregar_producto_al_carrito
+2026-10-06 01:00:55 | INFO | utils.saucedemo_utils | Abrir SauceDemo e iniciar sesión con standard_user
+2026-10-06 01:00:57 | INFO | utils.saucedemo_utils | Login realizado. URL actual: https://www.saucedemo.com/inventory.html
+2026-10-06 01:00:57 | INFO | utils.saucedemo_utils | Producto agregado: Sauce Labs Backpack | Precio: $29.99
+2026-10-06 01:00:58 | INFO | test_saucedemo | TC03: contador 1 y producto correcto en carrito: {'nombre': 'Sauce Labs Backpack', 'precio': '$29.99'}
+2026-10-06 01:00:58 | INFO | conftest | Resultado de test_agregar_producto_al_carrito (call): passed
+2026-10-06 01:01:00 | INFO | conftest | Navegador cerrado para test_agregar_producto_al_carrito
