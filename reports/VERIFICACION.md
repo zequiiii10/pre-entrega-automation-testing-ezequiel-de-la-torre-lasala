@@ -1,55 +1,51 @@
-# Estado de la verificación del proyecto
+# Verificación del proyecto
 
-## Qué se verificó
+## Ejecución funcional
 
-- Se instalaron las versiones indicadas en `requirements.txt`.
-- `pip check` no detectó incompatibilidades de dependencias.
-- Pytest importó y descubrió los tres casos de SauceDemo.
-- Se confirmaron los IDs del formulario real de login: `user-name`, `password`
-  y `login-button`.
-- Una comprobación técnica separada, con un navegador simulado, confirmó que
-  un fallo genera un PNG, que el HTML incorpora su imagen y que el fixture
-  crea sesiones distintas y cierra ambas, incluso tras el fallo.
+- **Fecha:** 06/10/2026, de 01:00 a 01:01 (Argentina, UTC-3).
+- **Sistema operativo:** Windows 11.
+- **Python:** 3.13.15.
+- **Selenium:** 4.50.0.
+- **Pytest:** 9.1.1.
+- **pytest-html:** 4.2.0.
+- **Navegador:** Google Chrome.
+- **Sitio:** https://www.saucedemo.com/.
+- **Resultado:** 3 pruebas aprobadas en 27,59 segundos.
 
-La comprobación con navegador simulado verifica el mecanismo de evidencias;
-no demuestra que los flujos de SauceDemo hayan pasado. Sus archivos
-temporales no forman parte de la entrega.
+Comando ejecutado desde PowerShell, sin activar el entorno virtual:
 
-## Resultado del reporte adjunto
-
-Se intentó ejecutar la suite con Python 3.12.14, Chrome for Testing
-154.0.8037.92, Selenium 4.50.0, Pytest 9.1.1 y pytest-html 4.2.0 en Linux.
-Para ese intento se adaptaron únicamente la ruta del navegador/driver y las
-opciones de inicio requeridas por este entorno; el código de los tests se
-mantuvo igual.
-
-**Resultado: 3 errores de preparación del navegador.** Chrome no pudo abrirse
-por una restricción del entorno al crear un socket. Selenium informó
-`SessionNotCreatedException`. Ninguno de los tres flujos llegó a ejecutarse.
-
-`reporte.html` y `ejecucion.log` documentan ese intento real. No constituyen una
-validación funcional aprobada ni el reporte final para entregar al curso. No
-hay capturas reales porque el navegador no llegó a estar disponible.
-
-## Verificación pendiente en la PC del autor
-
-Desde la raíz del proyecto, con las dependencias instaladas y Google Chrome
-disponible:
-
-```bash
-python -m pytest
+```powershell
+.\.venv\Scripts\python.exe -m pytest
 ```
 
-Confirmar **3 passed**. Esa ejecución reemplaza el reporte y el log adjuntos.
-Antes de entregar, revisar los archivos generados y agregar aquí la fecha, el
-resultado y el entorno de tu verificación local. Si hay fallos, conservarlos
-para diagnosticar y corregir; no editar el HTML para cambiar resultados.
+## Casos verificados
 
-También se puede verificar un test aislado:
+| Caso | Resultado | Validaciones |
+| --- | --- | --- |
+| Login exitoso | Aprobado | Credenciales válidas, ruta `/inventory.html`, título y cabeceras del inventario. |
+| Catálogo de productos | Aprobado | Producto visible, nombre y precio del primero, menú, filtro y acceso al carrito. |
+| Agregar producto al carrito | Aprobado | Carrito inicialmente vacío, contador 1, producto con nombre y precio coincidentes y cantidad 1. |
 
-```bash
-python -m pytest tests/test_saucedemo.py::test_agregar_producto_al_carrito
-```
+El primer producto fue **Sauce Labs Backpack**, con precio **$29.99**.
+Los logs registran una sesión nueva y el cierre del navegador para cada caso.
 
-Después del test aislado, volver a ejecutar la suite completa para que el
-reporte final incluya los tres casos.
+## Evidencias
+
+- `reporte.html`: reporte HTML de los tres casos aprobados.
+- `ejecucion.log`: registro de la misma ejecución.
+- `screenshots/`: carpeta destinada a capturas automáticas ante fallos. La
+  ejecución funcional aprobada no produjo capturas de error.
+
+El mecanismo de capturas se comprobó por separado con un navegador simulado:
+se verificaron la generación del PNG, la incorporación de la imagen al HTML
+y el cierre del navegador tras el fallo. Esa comprobación técnica no forma
+parte de los tres casos funcionales ni de su reporte.
+
+Selenium Manager emitió una advertencia al enviar estadísticas a Plausible.
+La advertencia no impidió abrir Chrome ni ejecutar los tres tests.
+
+## Estado
+
+La ejecución funcional en Windows fue satisfactoria. El reporte y el log
+publicados corresponden a esa ejecución y reemplazan las evidencias del
+intento inicial realizado en otro entorno.
